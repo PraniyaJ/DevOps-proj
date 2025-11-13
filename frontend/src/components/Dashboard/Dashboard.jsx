@@ -65,16 +65,16 @@ const Dashboard = () => {
   }
 
   const menuItems = [
-    { icon: '🏥', label: 'Dashboard', active: true },
-    { icon: '👥', label: 'Patients', active: false },
-    { icon: '👨‍⚕️', label: 'Doctors', active: false },
-    { icon: '📅', label: 'Appointments', active: false },
-    { icon: '🏨', label: 'Departments', active: false },
-    { icon: '💊', label: 'Pharmacy', active: false },
-    { icon: '🧪', label: 'Laboratory', active: false },
-    { icon: '💰', label: 'Billing', active: false },
-    { icon: '📊', label: 'Reports', active: false },
-    { icon: '⚙️', label: 'Settings', active: false },
+    { label: 'Dashboard', active: true },
+    { label: 'Patients', active: false },
+    { label: 'Doctors', active: false },
+    { label: 'Appointments', active: false },
+    { label: 'Departments', active: false },
+    { label: 'Pharmacy', active: false },
+    { label: 'Laboratory', active: false },
+    { label: 'Billing', active: false },
+    { label: 'Reports', active: false },
+    { label: 'Settings', active: false },
   ];
 
   return (
@@ -86,10 +86,9 @@ const Dashboard = () => {
             <button 
               onClick={() => setSidebarOpen(!sidebarOpen)}
               className="text-white hover:bg-white/10 p-2 rounded-lg transition-all duration-300"
+              aria-label="Toggle menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
+              <span className="sr-only">Toggle menu</span>
             </button>
             <div className="text-white text-xl font-semibold">
               Hospital Management System
@@ -117,13 +116,12 @@ const Dashboard = () => {
               {menuItems.map((item, index) => (
                 <button
                   key={index}
-                  className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                  className={`w-full flex items-center px-4 py-3 rounded-lg transition-all duration-300 ${
                     item.active 
                       ? 'bg-white/20 text-white border border-white/30' 
                       : 'text-white/80 hover:bg-white/10 hover:text-white'
                   }`}
                 >
-                  <span className="text-xl">{item.icon}</span>
                   <span className="font-medium">{item.label}</span>
                 </button>
               ))}
@@ -153,7 +151,7 @@ const Dashboard = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6 shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="flex items-center justify-between mb-2">
-                <div className="text-3xl">👥</div>
+                <div />
                 <div className="bg-blue-500/20 px-3 py-1 rounded-full text-blue-200 text-sm">+12%</div>
               </div>
               <h3 className="text-white/80 text-sm mb-1">Total Patients</h3>
@@ -162,7 +160,7 @@ const Dashboard = () => {
 
             <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6 shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="flex items-center justify-between mb-2">
-                <div className="text-3xl">📅</div>
+                <div />
                 <div className="bg-green-500/20 px-3 py-1 rounded-full text-green-200 text-sm">Today</div>
               </div>
               <h3 className="text-white/80 text-sm mb-1">Appointments</h3>
@@ -171,7 +169,7 @@ const Dashboard = () => {
 
             <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6 shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="flex items-center justify-between mb-2">
-                <div className="text-3xl">👨‍⚕️</div>
+                <div />
                 <div className="bg-purple-500/20 px-3 py-1 rounded-full text-purple-200 text-sm">Active</div>
               </div>
               <h3 className="text-white/80 text-sm mb-1">Doctors On Duty</h3>
@@ -180,7 +178,7 @@ const Dashboard = () => {
 
             <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6 shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="flex items-center justify-between mb-2">
-                <div className="text-3xl">🏨</div>
+                <div />
                 <div className="bg-yellow-500/20 px-3 py-1 rounded-full text-yellow-200 text-sm">85%</div>
               </div>
               <h3 className="text-white/80 text-sm mb-1">Bed Occupancy</h3>
@@ -195,21 +193,18 @@ const Dashboard = () => {
               <h2 className="text-white text-xl font-semibold mb-4">Recent Activity</h2>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 p-3 bg-white/5 rounded-lg border border-white/10">
-                  <div className="text-2xl">👤</div>
                   <div className="flex-1">
                     <p className="text-white font-medium">New patient registered</p>
                     <p className="text-white/60 text-sm">John Doe - 2 minutes ago</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 p-3 bg-white/5 rounded-lg border border-white/10">
-                  <div className="text-2xl">📋</div>
                   <div className="flex-1">
                     <p className="text-white font-medium">Lab report completed</p>
                     <p className="text-white/60 text-sm">Patient ID: #12845 - 15 minutes ago</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 p-3 bg-white/5 rounded-lg border border-white/10">
-                  <div className="text-2xl">💊</div>
                   <div className="flex-1">
                     <p className="text-white font-medium">Pharmacy stock alert</p>
                     <p className="text-white/60 text-sm">Aspirin running low - 1 hour ago</p>
@@ -222,20 +217,19 @@ const Dashboard = () => {
             <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6 shadow-lg">
               <h2 className="text-white text-xl font-semibold mb-4">Quick Actions</h2>
               <div className="grid grid-cols-2 gap-3">
-                <button className="bg-blue-500/20 hover:bg-blue-500/30 text-white p-4 rounded-xl transition-all duration-300 border border-blue-500/30 hover:border-blue-500/50 flex flex-col items-center space-y-2">
-                  <span className="text-2xl">➕</span>
+                <button 
+                  onClick={() => navigate('/add-patient')}
+                  className="bg-blue-500/20 hover:bg-blue-500/30 text-white p-4 rounded-xl transition-all duration-300 border border-blue-500/30 hover:border-blue-500/50 flex flex-col items-center space-y-2"
+                >
                   <span className="text-sm font-medium">Add Patient</span>
                 </button>
                 <button className="bg-green-500/20 hover:bg-green-500/30 text-white p-4 rounded-xl transition-all duration-300 border border-green-500/30 hover:border-green-500/50 flex flex-col items-center space-y-2">
-                  <span className="text-2xl">📅</span>
                   <span className="text-sm font-medium">Schedule</span>
                 </button>
                 <button className="bg-purple-500/20 hover:bg-purple-500/30 text-white p-4 rounded-xl transition-all duration-300 border border-purple-500/30 hover:border-purple-500/50 flex flex-col items-center space-y-2">
-                  <span className="text-2xl">📊</span>
                   <span className="text-sm font-medium">Reports</span>
                 </button>
                 <button className="bg-orange-500/20 hover:bg-orange-500/30 text-white p-4 rounded-xl transition-all duration-300 border border-orange-500/30 hover:border-orange-500/50 flex flex-col items-center space-y-2">
-                  <span className="text-2xl">💰</span>
                   <span className="text-sm font-medium">Billing</span>
                 </button>
               </div>
